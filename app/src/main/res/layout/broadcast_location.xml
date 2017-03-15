@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="9dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="22dp"
+    android:textStyle="bold"
+    android:textColor="#016fb7"
+    android:layout_marginBottom="9dp"
+    android:layout_gravity="center_horizontal"
+    android:text="Broadcast Location To:"/>
+    <CheckedTextView
+        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="#15b4d1"
+
+        android:text=" Public Authority  "
+        android:textSize="16dp"
+        android:checked="true"
+        android:checkMark="@drawable/checked"
+        android:layout_height="wrap_content"/>
+    <CheckedTextView
+        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:text=" Emergency Contacts  "
+        android:textSize="16dp"
+        android:textColor="#14c4d4"
+        android:checked="true"
+        android:checkMark="@drawable/checked"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
