@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88ffffff"
+    android:background="#fff3f3"
     android:padding="10dp">
+
 <ImageView
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:background="#fff"
+    android:background="#fcf1e8"
     android:layout_marginLeft="8dp"
+    android:id="@+id/callE"
     android:src="@drawable/notifications_n"/>
     <TextView
         android:layout_width="26dp"
@@ -17,29 +19,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:textSize="17dp"
-        android:text="Stats.........."
+        android:textSize="14dp"
+        android:text="Welcome to NJIT Shield"
         android:padding="6dp"
         android:textColor="#555"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:layout_weight="0.01"
         android:textAlignment="center" />
 
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="#fff"
+        android:background="#fcf1e8"
         android:layout_marginLeft="7dp"
         android:layout_weight="0.012"
 
-android:id="@+id/callE"
         android:src="@drawable/call"/>
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:visibility="gone"
         android:layout_weight="0.004"
-        android:background="#fff"
+        android:background="#fcf1e8"
 
         android:layout_marginLeft="7dp"
         android:src="@drawable/close"/>
