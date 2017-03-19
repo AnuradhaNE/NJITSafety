@@ -31,7 +31,7 @@
                 android:src="@drawable/notifications_ic"
                 android:background="@color/colorPrimary"
                 android:layout_gravity="top|right"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="18dp"
                 />
             </android.support.v7.widget.Toolbar>
 
