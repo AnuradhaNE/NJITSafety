@@ -13,7 +13,7 @@
     android:id="@+id/callE"
     android:src="@drawable/notifications_n"/>
     <TextView
-        android:layout_width="26dp"
+        android:layout_width="7dp"
         android:layout_height="match_parent"
         ></TextView>
     <TextView
@@ -24,6 +24,7 @@
         android:padding="6dp"
         android:textColor="#555"
         android:textStyle="bold"
+        android:id="@+id/safety_stats"
         android:layout_weight="0.01"
         android:textAlignment="center" />
 
@@ -33,15 +34,19 @@
         android:background="#fcf1e8"
         android:layout_marginLeft="7dp"
         android:layout_weight="0.012"
-
+       android:id="@+id/call"
         android:src="@drawable/call"/>
+    <TextView
+        android:layout_width="18dp"
+        android:layout_height="match_parent"
+        ></TextView>
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:visibility="gone"
-        android:layout_weight="0.004"
+      android:visibility="gone"
+        android:layout_weight="0.009"
         android:background="#fcf1e8"
-
+        android:id="@+id/close_btn"
         android:layout_marginLeft="7dp"
         android:src="@drawable/close"/>
 

@@ -1,5 +1,6 @@
 package com.njit.njitsafety;
 
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -7,9 +8,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,7 +23,148 @@ import android.view.MenuItem;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-public class Safety extends AppCompatActivity {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class Safety extends AppCompatActivity implements
+        OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+
+    LocationRequest mLocationRequest;
+    GoogleApiClient mGoogleApiClient;
+
+    LatLng latLng;
+    GoogleMap mGoogleMap;
+    SupportMapFragment mFragment;
+    Marker currLocationMarker;
+
+
+    @Override
+    public void onMapReady(GoogleMap gMap) {
+        mGoogleMap = gMap;
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mGoogleMap.setMyLocationEnabled(true);
+
+        buildGoogleApiClient();
+
+        mGoogleApiClient.connect();
+
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+        Toast.makeText(this, "buildGoogleApiClient", Toast.LENGTH_SHORT).show();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        Toast.makeText(this, "onConnected", Toast.LENGTH_SHORT).show();
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null) {
+            //place marker at current position
+            //mGoogleMap.clear();
+            latLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Current Position");
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+            currLocationMarker = mGoogleMap.addMarker(markerOptions);
+        }
+
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(5000); //5 seconds
+        mLocationRequest.setFastestInterval(3000); //3 seconds
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        //mLocationRequest.setSmallestDisplacement(0.1F); //1/10 meter
+
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+
+
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        Toast.makeText(this,"onConnectionSuspended",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        Toast.makeText(this,"onConnectionFailed",Toast.LENGTH_SHORT).show();
+    }
+
+    boolean ld=false;
+    @Override
+    public void onLocationChanged(Location location) {
+
+        //place marker at current position
+        //mGoogleMap.clear();
+
+        if (!ld) {
+            if (currLocationMarker != null) {
+                currLocationMarker.remove();
+            }
+            latLng = new LatLng(location.getLatitude(), location.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title("Current Position");
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+            currLocationMarker = mGoogleMap.addMarker(markerOptions);
+
+            Toast.makeText(this,"Location Changed",Toast.LENGTH_SHORT).show();
+
+            //zoom to current position:
+            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,18));
+           ld=true;
+            //If you only need one location, unregister the listener
+            //LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+        }
+        return;
+
+    }
+
+
+
+
+
+
+
+
+
 
 
     @Override
@@ -33,14 +178,22 @@ public class Safety extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        mFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map2);
+        mFragment.getMapAsync(this);
         int n=getResources().getInteger(R.integer.safety_notification);
         contentView = new RemoteViews(getPackageName(), R.layout.safetynotification);
-        Intent reboot=new Intent("com.example.app.ACTION_PLAY");
-        reboot.putExtra("DO", "reboot");
-        PendingIntent pReboot = PendingIntent.getBroadcast(this, 100, reboot, 0);
-        contentView.setImageViewResource(R.id.callE,R.drawable.notifications_panic);
-        contentView.setOnClickPendingIntent(R.id.callE,pReboot);
+        Intent notsafe=new Intent(this,SafetyService.class);
+        notsafe.setAction("com.njit.njitsafety.action.Safety_Unsafe");
+        PendingIntent NS = PendingIntent.getService(this, 100, notsafe, 0);
+        //com.njit.njitsafety.action.FOO
+        Intent Call=new Intent(this,SafetyService.class);
+        Call.setAction("com.njit.njitsafety.action.Call");
+
+        PendingIntent pendingIntentCall = PendingIntent.getService(this, 1001, Call, 0);
+//        contentView.setImageViewResource(R.id.callE,R.drawable.notifications_panic);
+        contentView.setOnClickPendingIntent(R.id.call,pendingIntentCall);
+        contentView.setOnClickPendingIntent(R.id.callE,NS);
 
         PendingIntent P = PendingIntent.getActivity(this, 10,new Intent(this,Safety.class), 0);
 
@@ -48,13 +201,25 @@ public class Safety extends AppCompatActivity {
 
         mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
+        findViewById(R.id.bl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                final Dialog dialog = new Dialog(Safety.this);
+                dialog.setContentView(R.layout.broadcast_location);
+                dialog.show();
+
+
+            }
+        });
 
   // contentView.setInt(R.id.callE, "change", R.drawable.i);
 
         notification = new Notification.Builder(this)
                 .setSmallIcon(R.drawable.icon)
                 .setContent(contentView)
-                 .setContentIntent(P)
+                .setContentIntent(P)
                 .build();;
 
 

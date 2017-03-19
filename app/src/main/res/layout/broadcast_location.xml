@@ -2,14 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="9dp">
+    android:background="#fff"
+    android:padding="23dp">
+    <!--<ImageButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="right"-->
+        <!--android:background="@drawable/close_"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:backgroundTint="@color/colorFont"-->
+        <!--/>-->
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="22dp"
+
     android:textStyle="bold"
     android:textColor="#016fb7"
-    android:layout_marginBottom="9dp"
+    android:layout_marginBottom="19dp"
     android:layout_gravity="center_horizontal"
     android:text="Broadcast Location To:"/>
     <CheckedTextView

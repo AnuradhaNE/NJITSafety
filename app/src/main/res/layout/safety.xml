@@ -36,12 +36,12 @@
             </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
-
     <include layout="@layout/content_safety" />
+    <include layout="@layout/nav_b"></include>
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/bl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
