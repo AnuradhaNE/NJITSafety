@@ -2,4 +2,5 @@
 <resources>
 
     <integer name="safety_notification">2305</integer>
+    <integer name="slideAnimationDuration">280</integer>
 </resources>

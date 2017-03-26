@@ -23,19 +23,13 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="N"
+        android:label="NJIT Shield"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".Safety"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <receiver android:name=".SafetyReceiver">
             <intent-filter>
@@ -50,7 +44,7 @@
 
         <service
             android:name=".SafetyService"
-            android:exported="false"></service>
+            android:exported="false" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -65,7 +59,25 @@
 
         <activity
             android:name=".Maps"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".Welcome"
+            android:label="NJIT Shield"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:label="Login" />
+        <activity
+            android:name=".Signup"
+            android:label="@string/title_activity_signup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ChooseAddresses"></activity>
     </application>
 
 </manifest>

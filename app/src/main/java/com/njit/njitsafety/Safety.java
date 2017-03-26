@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -250,6 +251,29 @@ public class Safety extends AppCompatActivity implements
         return true;
     }
 
+    boolean menuopen=true;
+    public void menu(View v)
+    {
+        ImageButton ib=(ImageButton)v;
+       if(menuopen){
+
+           ib.setImageResource(R.drawable.menu);
+           SlideAnimationUtil.slideOutToLeft(this,findViewById(R.id.menu_));
+           findViewById(R.id.menu_).setVisibility(View.GONE);
+
+           menuopen=false;
+       }
+
+        else {
+           ib.setImageResource(R.drawable.close_);
+           findViewById(R.id.menu_).setVisibility(View.VISIBLE);
+           SlideAnimationUtil.slideInFromLeft(this,findViewById(R.id.menu_));
+
+           menuopen=true;
+       }
+
+        return;
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -266,6 +290,7 @@ public class Safety extends AppCompatActivity implements
         return true;
     }
 }
+
 
 
 

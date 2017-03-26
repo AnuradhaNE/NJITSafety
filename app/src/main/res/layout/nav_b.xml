@@ -4,6 +4,8 @@
     android:padding="18dp"
     android:layout_width="wrap_content"
     android:background="#fff"
+    android:visibility="gone"
+      android:id="@+id/menu_"
     android:layout_height="match_parent">
     <LinearLayout
         android:orientation="horizontal"
