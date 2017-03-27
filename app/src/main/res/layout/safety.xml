@@ -33,6 +33,7 @@
                 android:src="@drawable/notifications_ic"
                 android:background="@color/colorPrimary"
                 android:layout_gravity="top|right"
+                android:onClick="getUpdates"
                 android:layout_marginRight="18dp"
                 />
             </android.support.v7.widget.Toolbar>

@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:padding="18dp"
     android:layout_width="wrap_content"
     android:background="#fff"
+    android:padding="9dp"
     android:visibility="gone"
       android:id="@+id/menu_"
     android:layout_height="match_parent">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:onClick="goToAcc"
         android:layout_height="wrap_content">
     <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/black_border"
     android:layout_marginTop="59dp"
-    android:src="@drawable/me_"/>
+        android:onClick="goToAcc"
+
+        android:src="@drawable/me_"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="65dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
+            android:onClick="goToAcc"
+
             android:text="Account"/>
     </LinearLayout>
 
@@ -36,7 +39,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
         android:layout_marginTop="22dp"
-
+android:layout_marginBottom="10dp"
+        android:onClick="chat"
         android:src="@drawable/chat"/>
 
         <TextView
@@ -45,6 +49,7 @@
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
+            android:onClick="chat"
             android:text="Chat"/>
         </LinearLayout>
     <LinearLayout
@@ -56,6 +61,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
         android:layout_marginTop="22dp"
+        android:onClick="goSurvey"
+
         android:src="@drawable/survey"/>
         <TextView
             android:layout_width="wrap_content"
@@ -63,17 +70,20 @@
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
+            android:onClick="goSurvey"
+
             android:text="Survey"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:onClick="addEm"
         android:layout_height="wrap_content">
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
+        android:onClick="addEm"
+
         android:layout_marginTop="22dp"
         android:src="@drawable/emergency_contact"/>
         <TextView
@@ -82,24 +92,29 @@
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
+            android:onClick="addEm"
+
             android:text="Emergency \n Contacts"/>
         </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:onClick="callEm"
         android:layout_height="wrap_content">
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
         android:layout_marginTop="22dp"
+        android:onClick="callEm"
+
         android:src="@drawable/phone"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="29dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
+            android:onClick="callEm"
+
             android:text="Emergency \n Phone"/>
         </LinearLayout>
     <LinearLayout
@@ -112,28 +127,35 @@
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
         android:layout_marginTop="22dp"
+        android:onClick="goTimeline"
+
         android:src="@drawable/timeline"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="29dp"
             android:layout_marginLeft="10dp"
+            android:onClick="goTimeline"
+
             android:layout_height="wrap_content"
             android:text="Timeline"/>
         </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:onClick="comingSoon"
         android:layout_height="wrap_content">
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/black_border"
             android:layout_marginTop="22dp"
+            android:onClick="comingSoon"
+
             android:src="@drawable/settings"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="29dp"
+            android:onClick="comingSoon"
+
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:text="Settings"/>

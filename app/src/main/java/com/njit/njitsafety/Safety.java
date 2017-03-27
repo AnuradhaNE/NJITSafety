@@ -266,6 +266,32 @@ public class Safety extends AppCompatActivity implements
         return;
     }
 
+    public void getUpdates(View v)
+    {
+        Intent i=new Intent(this,ShowList.class);
+        i.putExtra("TAG","Get Updates");
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+    }
+       public void goTimeline(View v)
+       {
+           Intent i=new Intent(this,ShowList.class);
+           i.putExtra("TAG","Timeline");
+           startActivity(i);
+           overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+       }
+    public void goSurvey(View v){
+        Intent i=new Intent(this,ShowList.class);
+        i.putExtra("TAG","Surveys");
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+    }
+    public void chat(View v){
+        Intent i=new Intent(this,ShowList.class);
+        i.putExtra("TAG","Chats");
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+    }
     public void addEm(View v)
     {
         Intent i=new Intent(this,AddEmergencyContacts.class);

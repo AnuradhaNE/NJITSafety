@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorbdy">#34ffcb8c</color>
+    <color name="colorchatbdy">#34fdb966</color>
+
     <color name="colorPrimary">#f7807e</color>
     <color name="colorPrimaryDark">#f56b72</color>
     <color name="colorAccent">#fcf48c</color>
     <color name="colorFont">#222</color>
+
 </resources>
