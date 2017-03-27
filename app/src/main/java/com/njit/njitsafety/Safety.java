@@ -250,6 +250,29 @@ public class Safety extends AppCompatActivity implements
 //        getMenuInflater().inflate(R.menu.menu_safety, menu);
         return true;
     }
+    public  void callEm(View v)
+    {
+        Toast.makeText(this,"Call Emergency",Toast.LENGTH_LONG).show();
+    }
+    public  void comingSoon(View v)
+    {
+        Toast.makeText(this,"Coming Soon.........",Toast.LENGTH_LONG).show();
+    }
+    public void goToAcc(View v)
+    {
+        Intent i=new Intent(this,Profile.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+        return;
+    }
+
+    public void addEm(View v)
+    {
+        Intent i=new Intent(this,AddEmergencyContacts.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+        return;
+    }
 
     boolean menuopen=true;
     public void menu(View v)

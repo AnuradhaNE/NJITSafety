@@ -10,6 +10,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
+        android:onClick="goToAcc"
         android:layout_height="wrap_content">
     <ImageButton
     android:layout_width="wrap_content"
@@ -67,6 +68,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
+        android:onClick="addEm"
         android:layout_height="wrap_content">
     <ImageButton
         android:layout_width="wrap_content"
@@ -85,6 +87,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
+        android:onClick="callEm"
         android:layout_height="wrap_content">
     <ImageButton
         android:layout_width="wrap_content"
@@ -103,6 +106,7 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,6 +123,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
+        android:onClick="comingSoon"
         android:layout_height="wrap_content">
         <ImageButton
             android:layout_width="wrap_content"

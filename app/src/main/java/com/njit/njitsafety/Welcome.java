@@ -37,6 +37,15 @@ public class Welcome extends AppCompatActivity {
         }
     }
 
+
+
+
+
+
+
+
+
+
     public void go(View v)
     {
 

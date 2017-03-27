@@ -11,6 +11,17 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
 public class ChooseAddresses extends AppCompatActivity {
 
+   static final   int c=9;
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case c:
+                break;
+        }
+        }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

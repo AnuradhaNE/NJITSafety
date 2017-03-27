@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -29,7 +30,7 @@
         <activity
             android:name=".Safety"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name=".SafetyReceiver">
             <intent-filter>
@@ -77,7 +78,15 @@
             android:name=".Signup"
             android:label="@string/title_activity_signup"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ChooseAddresses"></activity>
+        <activity android:name=".ChooseAddresses" />
+        <activity
+            android:name=".AddEmergencyContacts"
+            android:label="Add Emergency Contacts" />
+        <activity
+            android:name=".Profile"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ShowList"></activity>
     </application>
 
 </manifest>
