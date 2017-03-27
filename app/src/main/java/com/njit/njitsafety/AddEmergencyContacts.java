@@ -1,16 +1,23 @@
 package com.njit.njitsafety;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +28,7 @@ public class AddEmergencyContacts extends AppCompatActivity {
     private ArrayList<Map<String, String>> mPeopleList;
     private SimpleAdapter mAdapter;
     private AutoCompleteTextView mTxtPhoneNo;
-
+Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +36,8 @@ public class AddEmergencyContacts extends AppCompatActivity {
         mPeopleList = new ArrayList<Map<String, String>>();
         mTxtPhoneNo = (AutoCompleteTextView) findViewById(R.id.choose_em_contacts);
         allc=(TextView)findViewById(R.id.em_contacts);
-        allc.setText(PrefUtils.getStrVal("EM",this));
+
+        context=this;
         new AsyncTask<Void,Void,Void>(){
 
             ProgressDialog pd;
@@ -40,15 +48,35 @@ public class AddEmergencyContacts extends AppCompatActivity {
                 pd=new ProgressDialog(AddEmergencyContacts.this);
                 pd.show();
             }
-
+String n="";
             @Override
             protected Void doInBackground(Void... params) {
                 PopulatePeopleList();
-                return null;
+
+                JSONArray array;
+
+                try {
+                    if (PrefUtils.getStrVal("EM", context).isEmpty())
+                        array = new JSONArray();
+                    else
+                        array = new JSONArray(PrefUtils.getStrVal("EM", context));
+
+                    for(int i=0;i<array.length();i++){
+                        JSONObject o=(JSONObject)array.get(i);
+                        n=n+(i+1)+"."+o.getString("Name")+" : "+o.getString("Cell")+"\n";
+
+                    }
+                }
+                catch(JSONException r){
+
+                }
+
+                    return null;
             }
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                allc.setText(n);
 pd.dismiss();
             }
         }.execute();
@@ -64,16 +92,85 @@ pd.dismiss();
     TextView allc;
 public void addByText(View v){
 
+    EditText n=(EditText)findViewById(R.id.choose_em_contactsntext);
+    EditText m=(EditText)findViewById(R.id.choose_em_contactstext);
+    JSONObject j=new JSONObject();
+    JSONArray array;
+
+    try {
+        if(PrefUtils.getStrVal("EM",this).isEmpty())
+    array   =new JSONArray();
+        else
+            array   =new JSONArray(PrefUtils.getStrVal("EM",this));
 
 
+        j.put("Name",n.getText().toString());
+        j.put("Cell",m.getText().toString());
+        array.put(j);
+        PrefUtils.addToPref("EM",array.toString(),this);
+
+
+    } catch (JSONException e) {
+Log.e("ERR",e.getMessage());  }
 //    textView.setTextAlignment;
 
+
+
+
+
+    new AsyncTask<Void,Void,Void>(){
+
+        ProgressDialog pd;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd=new ProgressDialog(AddEmergencyContacts.this);
+            pd.show();
+        }
+        String n="";
+        @Override
+        protected Void doInBackground(Void... params) {
+            // PopulatePeopleList();
+
+            JSONArray array;
+
+            try {
+                if (PrefUtils.getStrVal("EM", context).isEmpty())
+                    array = new JSONArray();
+                else
+                    array = new JSONArray(PrefUtils.getStrVal("EM", context));
+
+                for(int i=0;i<array.length();i++){
+                    JSONObject o=(JSONObject)array.get(i);
+                    n=n+(i+1)+"."+o.getString("Name")+" : "+o.getString("Cell")+"\n";
+
+                }
+            }
+            catch(JSONException r){
+
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            allc.setText(n);
+            pd.dismiss();
+        }
+    }.execute();
+
 }
+
     public void PopulatePeopleList() {
         mPeopleList.clear();
+        int i=0;
         Cursor people = getContentResolver().query(
                 ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         while (people.moveToNext()) {
+            if(i<301)i++;
+            else break;
             String contactName = people.getString(people
                     .getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
             String contactId = people.getString(people
