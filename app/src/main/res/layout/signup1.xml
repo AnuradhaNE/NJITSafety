@@ -8,24 +8,24 @@
     android:background="#fff"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.njit.njitsafety.Signup$PlaceholderFragment">
-
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:text="Sign Up "
-        android:textSize="30dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content" />
+    tools:context="com.njit.njitsafety.Signup">
 
 
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="26dp"
+    android:layout_marginBottom="15dp"
+    android:layout_gravity="center_horizontal"
+    android:text="Signup"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="6dp"
+        android:padding="5dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="17dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="6dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -48,10 +48,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="6dp"
+      android:padding="5dp"
         android:layout_gravity="center_horizontal"
 
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="13dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -78,10 +78,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="6dp"
+      android:padding="5dp"
         android:layout_gravity="center_horizontal"
 
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="13dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -104,13 +104,15 @@
     </LinearLayout>
 
 
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="6dp"
+      android:padding="5dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="14dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -134,10 +136,66 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="6dp"
+        android:padding="5dp"
+        android:visibility="gone"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="14dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="17dp"
+            android:textColor="@color/colorFont"
+
+            android:layout_height="wrap_content"
+            android:text="Address :  "/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:textSize="16dp"
+            android:hint="Enter your Address"
+            android:textColorHint="#999"
+            android:inputType="text"
+            android:textColor="@color/colorFont"
+            android:id="@+id/ent_my_add"
+
+            android:layout_marginLeft="49dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="14dp"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="17dp"
+            android:textColor="@color/colorFont"
+
+            android:layout_height="wrap_content"
+            android:text="Mobile Phone :  "/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:textSize="16dp"
+            android:hint="Enter your Age"
+            android:textColorHint="#999"
+            android:inputType="phone"
+            android:textColor="@color/colorFont"
+            android:id="@+id/ent_mobile_no"
+
+            android:layout_marginLeft="49dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="13dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"

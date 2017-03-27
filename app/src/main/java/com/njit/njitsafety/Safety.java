@@ -292,6 +292,13 @@ public class Safety extends AppCompatActivity implements
         startActivity(i);
         overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
     }
+    public void logout(View v){
+        Intent intent=new Intent(this,Welcome.class);
+        PrefUtils.addToPref("LOGIN",false,this);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+
+    }
     public void addEm(View v)
     {
         Intent i=new Intent(this,AddEmergencyContacts.class);

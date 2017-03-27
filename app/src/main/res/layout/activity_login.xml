@@ -38,7 +38,7 @@
             android:textColorHint="#999"
             android:inputType="text"
             android:textColor="@color/colorFont"
-
+android:id="@+id/ucid_"
             android:layout_marginLeft="49dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -59,13 +59,20 @@
             android:layout_width="wrap_content"
             android:textSize="12.5dp"
             android:textColor="@color/colorFont"
-
+android:id="@+id/pwd"
             android:hint="Highlander Password"
             android:textColorHint="#999"
 android:inputType="textPassword"
             android:layout_marginLeft="19dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Login"
+    android:onClick="login"
+    android:layout_marginTop="8dp"
+    android:background="@color/colorPrimaryDark"
+    android:layout_gravity="center_horizontal"/>
 </LinearLayout>
 

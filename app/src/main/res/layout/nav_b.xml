@@ -148,16 +148,16 @@ android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
             android:background="@drawable/black_border"
             android:layout_marginTop="22dp"
-            android:onClick="comingSoon"
+            android:onClick="logout"
 
-            android:src="@drawable/settings"/>
+            android:src="@drawable/poweroff"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginTop="29dp"
-            android:onClick="comingSoon"
+            android:onClick="logout"
 
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
-            android:text="Settings"/>
+            android:text="Logout"/>
     </LinearLayout>
 </LinearLayout>

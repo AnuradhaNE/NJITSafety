@@ -100,6 +100,8 @@ final Context c=this;
                         PrefUtils.addToPref("UCID",u,c);
                         PrefUtils.addToPref("AGE",a,c);
                         PrefUtils.addToPref("PASS",pass.getText().toString(),c);
+                        PrefUtils.addToPref("LOGIN",true,c);
+                        PrefUtils.addToPref("EM","",c);
 
                         if(female.isChecked()) {
                             PrefUtils.addToPref("GENDER","F",c);

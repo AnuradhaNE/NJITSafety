@@ -22,18 +22,27 @@ public class Welcome extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         final Context c=this;
-        if (PrefUtils.getIntVal("AGE",this)>16) {
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
 
-                    Intent i=new Intent(c,Safety.class);
-                    startActivity(i);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-                  // Toast.makeText(c, "Go Delayed", Toast.LENGTH_SHORT).show();
-                }
-            },900 );
+        if (PrefUtils.getIntVal("AGE",this)>16) {
+         //   PrefUtils.addToPref("EM","",c);
+
+            if (PrefUtils.getBooleanVal("LOGIN",this)) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Intent i=new Intent(c,Safety.class);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                      // Toast.makeText(c, "Go Delayed", Toast.LENGTH_SHORT).show();
+                    }
+                },900 );
+            }
+            else{
+
+            }
+
         }
     }
 
@@ -48,10 +57,23 @@ public class Welcome extends AppCompatActivity {
 
     public void go(View v)
     {
+        if (PrefUtils.getIntVal("AGE",this)>16) {
 
-        Intent i=new Intent(this,Signup.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-        Toast.makeText(this, "Go", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, Signup.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            Toast.makeText(this, "Go", Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+
+                Intent in=new Intent(this,Login.class);
+                startActivity(in);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                // Toast.makeText(c, "Go Delayed", Toast.LENGTH_SHORT).show();
+
+
+    }
+
     }
 }

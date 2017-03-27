@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,8 @@ public class AddEmergencyContacts extends AppCompatActivity {
         setContentView(R.layout.add_emergency_contacts);
         mPeopleList = new ArrayList<Map<String, String>>();
         mTxtPhoneNo = (AutoCompleteTextView) findViewById(R.id.choose_em_contacts);
+        allc=(TextView)findViewById(R.id.em_contacts);
+        allc.setText(PrefUtils.getStrVal("EM",this));
         new AsyncTask<Void,Void,Void>(){
 
             ProgressDialog pd;
@@ -58,7 +61,14 @@ pd.dismiss();
 
 
     }
+    TextView allc;
+public void addByText(View v){
 
+
+
+//    textView.setTextAlignment;
+
+}
     public void PopulatePeopleList() {
         mPeopleList.clear();
         Cursor people = getContentResolver().query(
