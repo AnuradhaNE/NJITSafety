@@ -139,6 +139,8 @@ public class Safety extends AppCompatActivity implements
             if (currLocationMarker != null) {
                 currLocationMarker.remove();
             }
+
+
             latLng = new LatLng(location.getLatitude(), location.getLongitude());
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);

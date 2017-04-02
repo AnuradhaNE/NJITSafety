@@ -1,11 +1,20 @@
 package com.njit.njitsafety;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -55,7 +64,46 @@ public class ShowList extends AppCompatActivity {
                 ls.add(new ListObj("App Installed","9:30",getIntent().getStringExtra("TAG")));
                 break;
             case "Get Updates":
-                ls.add(new ListObj("Notify Police","9:30",getIntent().getStringExtra("TAG")));
+                final Context context=this;
+             final String t=getIntent().getStringExtra("TAG");
+                GetUpdates.startGetUpdates(this);
+
+                new AsyncTask<Void,Void,Void>(){
+                    ProgressDialog pd;
+                    @Override
+                    protected void onPreExecute() {
+                        super.onPreExecute();
+                      pd=new ProgressDialog(context);
+                        pd.show();
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+                        super.onPostExecute(aVoid);
+                        listAdapter.notifyDataSetChanged();
+                        pd.dismiss();
+                    }
+
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(1000);
+                            String s = InternalFileUtils.readFromFile(context, context.getResources().getString(R.string.updateFile));
+                            JSONArray array = new JSONArray(s);
+                            for (int i = 0; i < array.length(); i++)
+                            {
+                                JSONObject o=(JSONObject) array.get(i);
+                                ls.add(new ListObj(o.getString(context.getResources().getString(R.string.receiver)),o.getString(context.getResources().getString(R.string.update_message)),t));
+                            }
+
+                        } catch (InterruptedException e) {
+                            Log.e("In",e.getMessage());
+                        } catch (JSONException e) {
+                            Log.e("In",e.getMessage());
+                        }
+                        return null;
+                    }
+                }.execute();
                 break;
         }
     }

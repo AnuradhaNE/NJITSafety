@@ -86,7 +86,20 @@
             android:name=".Profile"
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ShowList"></activity>
+        <activity android:name=".ShowList" />
+        <activity
+            android:name=".Chat"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".GetUpdates"
+            android:exported="false" />
+
+        <receiver
+            android:name=".GetUpdatesR"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

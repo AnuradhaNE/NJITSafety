@@ -7,6 +7,18 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="pass">password</string>
     <string name="title_activity_profile">My Profile</string>
+    <string name="updateFile">updates.txt</string>
+
+    <string name="get_update_id">getupdateID</string>
+    <string name="ucid">ucid</string>
+    <string name="receiver">receiver</string>
+    <string name="update_location">update_l</string>
+    <string name="update_message">update_m</string>
+    <string name="receiver_type">r_t</string>
+    <string name="timestamp_uploaded_on">timestamp</string>
+    <string name="got_update">got_up</string>
+
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -96,4 +108,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_chat">Chat</string>
 </resources>

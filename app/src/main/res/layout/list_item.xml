@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:padding="11dp"
-    android:background="#6efcd7b4"
-    android:layout_marginBottom="29dp"
+    android:padding="13dp"
+    android:background="@drawable/black_r_border"
+    android:layout_marginBottom="19dp"
     android:id="@+id/body"
     android:layout_height="wrap_content">
 <TextView
@@ -12,12 +12,13 @@
     android:textSize="18dp"
     android:id="@+id/stitle"
     android:textColor="@color/colorFont"
-    android:text="Survey:"/>
+    android:text="Survey  :"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:textStyle="italic"
         android:id="@+id/sdesc"
+        android:textColor="#ff9a9a"
         android:text="desc"/>
 </LinearLayout>

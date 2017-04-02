@@ -42,6 +42,21 @@
         android:checkMark="@drawable/checked"
         android:layout_height="wrap_content"/>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:paddingLeft="19dp"
+    android:paddingRight="19dp"
+    android:layout_height="wrap_content">
+    <CheckedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 1. hi"
+        android:textSize="15dp"
+        android:textColor="#14abc9"
+android:checked="true"
+        android:checkMark="@drawable/checked"
 
+        android:layout_margin="5dp"/>
+</LinearLayout>
 
 </LinearLayout>

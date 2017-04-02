@@ -119,26 +119,32 @@ public class Maps extends AppCompatActivity
     @Override
     public void onLocationChanged(Location location)
     {
-        mLastLocation = location;
-        if (mCurrLocationMarker != null) {
-            mCurrLocationMarker.remove();
-        }
-
-        //Place current location marker
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-        mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
-
-        //move map camera
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));
-
-        //optionally, stop location updates if only current location is needed
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-        }
+//        mLastLocation = location;
+//        if (mCurrLocationMarker != null) {
+//            mCurrLocationMarker.remove();
+//        }
+//
+//        //Place current location marker
+//        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+//        MarkerOptions markerOptions = new MarkerOptions();
+//        markerOptions.position(latLng);
+//        markerOptions.title("Current Position");
+//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+//        mCurrLocationMarker = mGoogleMap.addMarker(markerOptions);
+//
+//        //move map camera
+//        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));
+//
+//        //optionally, stop location updates if only current location is needed
+//        if (mGoogleApiClient != null) {
+//            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+//        }
+        Location b=new Location("");
+    }
+    public void onContactLocChanged(){
+        LatLng sydney = new LatLng(-34, 151);
+        mGoogleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
