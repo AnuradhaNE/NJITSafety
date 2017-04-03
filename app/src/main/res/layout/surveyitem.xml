@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/survey_ques"
     android:padding="13dp">
 <TextView
     android:layout_width="match_parent"
@@ -10,6 +11,7 @@
     android:layout_margin="6dp"
     android:textSize="24dp"
     android:textStyle="bold"
+    android:id="@+id/qtext"
     android:text="Q : 1 "/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,16 +23,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
+            android:id="@+id/opt1"
             android:text="OPt1"/>
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="0.09"></View>
+            android:layout_weight="0.04"></View>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
-
+android:id="@+id/opt2"
             android:text="OPt2"/>
 
     </LinearLayout>
@@ -44,16 +47,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
+            android:id="@+id/opt3"
             android:text="OPt3"/>
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="0.09"></View>
+            android:layout_weight="0.04"></View>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
-
+android:id="@+id/opt4"
             android:text="OPt4"/>
 
     </LinearLayout>
@@ -62,6 +66,7 @@
         android:src="@drawable/line"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:id="@+id/divider"
         android:layout_height="wrap_content" />
 
 </LinearLayout>
