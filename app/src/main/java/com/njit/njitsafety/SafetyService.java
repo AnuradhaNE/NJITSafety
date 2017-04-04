@@ -81,12 +81,12 @@ public class SafetyService extends IntentService {
                 Close.setAction("com.njit.njitsafety.action.Safety_Normal");
                 contentView.setImageViewResource(R.id.callE,R.drawable.notifications_un);
                 contentView.setTextViewText(R.id.safety_stats,"Call Emergency \n Contacts");
-               // contentView.setViewVisibility(R.id.close_btn, View.VISIBLE);
+                contentView.setViewVisibility(R.id.close_btn, View.VISIBLE);
                 PendingIntent cl = PendingIntent.getService(this, 10401, Close, 0);
 
                 contentView.setOnClickPendingIntent(R.id.call,pendingIntentCall);
                 contentView.setOnClickPendingIntent(R.id.callE,Pa);
-                //contentView.setOnClickPendingIntent(R.id.close_btn,cl);
+                contentView.setOnClickPendingIntent(R.id.close_btn,cl);
 
 
                 mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
@@ -168,10 +168,10 @@ public class SafetyService extends IntentService {
                 PendingIntent pendingIntentCall = PendingIntent.getService(this, 1001, Call, 0);
                 contentView.setImageViewResource(R.id.callE,R.drawable.notifications_panic);
                 contentView.setTextViewText(R.id.safety_stats,"Call Authorities");
-              //  contentView.setViewVisibility(R.id.close_btn, View.VISIBLE);
+                contentView.setViewVisibility(R.id.close_btn, View.VISIBLE);
                 contentView.setOnClickPendingIntent(R.id.call,pendingIntentCall);
                 contentView.setOnClickPendingIntent(R.id.callE,Pa);
-               // contentView.setOnClickPendingIntent(R.id.close_btn,cl);
+                contentView.setOnClickPendingIntent(R.id.close_btn,cl);
 
               //  contentView.setViewVisibility();
                 mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
