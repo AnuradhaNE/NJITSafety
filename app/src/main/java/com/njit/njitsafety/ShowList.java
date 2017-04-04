@@ -1,5 +1,6 @@
 package com.njit.njitsafety;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -10,6 +11,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,7 +30,7 @@ public class ShowList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.show_list);
+        setContentView(R.layout.activity_list);
         textView=(TextView)findViewById(R.id.list_title);
         rv=(RecyclerView)findViewById(R.id.list);
         textView.setText(getIntent().getStringExtra("TAG"));
@@ -46,7 +48,13 @@ public class ShowList extends AppCompatActivity {
         rv.setAdapter(listAdapter);
         listAdapter.notifyDataSetChanged();
     }
+public  void sendUpdate(View view){
 
+    final Dialog dialog = new Dialog(this);
+    dialog.setContentView(R.layout.up_d);
+
+    dialog.show();
+}
     void getList(String m)
     {
         switch (m)
@@ -54,6 +62,7 @@ public class ShowList extends AppCompatActivity {
             case "Chats":
                 ls.add(new ListObj("Paul","21:00",getIntent().getStringExtra("TAG")));
                 ls.add(new ListObj("Rutvi","9:30",getIntent().getStringExtra("TAG")));
+
                 break;
             case "Surveys":
                 ls.add(new ListObj("Harrison:Safety Survey","",getIntent().getStringExtra("TAG")));
@@ -65,7 +74,9 @@ public class ShowList extends AppCompatActivity {
                 break;
             case "Get Updates":
                 final Context context=this;
+                findViewById(R.id.add_an_update).setVisibility(View.VISIBLE);
              final String t=getIntent().getStringExtra("TAG");
+
                 GetUpdates.startGetUpdates(this);
 
                 new AsyncTask<Void,Void,Void>(){

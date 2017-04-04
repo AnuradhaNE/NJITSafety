@@ -88,6 +88,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ShowList" />
         <activity android:name=".SurveyActivity" />
+        <activity android:name=".Survey_Activity" />
 
         <activity
             android:name=".Chat"
@@ -97,7 +98,9 @@
         <service
             android:name=".GetUpdates"
             android:exported="false" />
-
+        <service
+            android:name=".GetSurvey"
+            android:exported="false" />
         <receiver
             android:name=".GetUpdatesR"
             android:enabled="true"

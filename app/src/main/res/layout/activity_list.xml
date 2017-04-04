@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<include layout="@layout/show_list" ></include>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="11dp"
+        android:src="@drawable/add"
+        android:id="@+id/add_an_update"
+        android:tint="#a67f59"
+        android:onClick="sendUpdate"
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
+</android.support.design.widget.CoordinatorLayout>

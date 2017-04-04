@@ -15,13 +15,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/black_border"
-    android:layout_marginTop="59dp"
+    android:layout_marginTop="29dp"
         android:onClick="goToAcc"
 
         android:src="@drawable/me_"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="35dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
@@ -38,14 +38,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="29dp"
 android:layout_marginBottom="10dp"
         android:onClick="chat"
         android:src="@drawable/chat"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="36dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
@@ -60,13 +60,13 @@ android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="25dp"
         android:onClick="goSurvey"
 
         android:src="@drawable/survey"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="33dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
@@ -84,11 +84,11 @@ android:layout_marginBottom="10dp"
         android:background="@drawable/black_border"
         android:onClick="addEm"
 
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="29dp"
         android:src="@drawable/emergency_contact"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="35dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:textStyle="italic"
@@ -104,13 +104,13 @@ android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="29dp"
         android:onClick="callEm"
 
         android:src="@drawable/phone"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="33dp"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:onClick="callEm"
@@ -126,13 +126,13 @@ android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/black_border"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="29dp"
         android:onClick="goTimeline"
 
         android:src="@drawable/timeline"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="37dp"
             android:layout_marginLeft="10dp"
             android:onClick="goTimeline"
 
@@ -147,13 +147,13 @@ android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/black_border"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="29dp"
             android:onClick="logout"
 
             android:src="@drawable/poweroff"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="36dp"
             android:onClick="logout"
 
             android:layout_marginLeft="10dp"

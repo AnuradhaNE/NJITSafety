@@ -17,7 +17,7 @@
     <string name="receiver_type">r_t</string>
     <string name="timestamp_uploaded_on">timestamp</string>
     <string name="got_update">got_up</string>
-
+     <string name="surveyFile">surveys.txt</string>
 
     <string name="large_text">
         "Material is the metaphor.\n\n"

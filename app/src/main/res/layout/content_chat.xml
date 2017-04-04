@@ -15,6 +15,7 @@
     tools:showIn="@layout/activity_chat">
 <ListView
     android:layout_width="match_parent"
+    android:id="@+id/listv"
     android:layout_marginBottom="50dp"
     android:layout_marginTop="10dp"
     android:layout_height="match_parent"></ListView>
